@@ -1,7 +1,7 @@
 const Command = require("./command");
 class Delete extends Command {
   execute() {
-    if (!this.args || this.args.length === 0) return;
+    if (!this.args || this.args.length === 0) return new Error("not arguments");
 
     let pwd = this.fileTree;
     const path = this.args[0].split("/");
@@ -14,7 +14,7 @@ class Delete extends Command {
         }
       } else {
         console.log(`Cannot delete ${this.args[0]} - ${dir} does not exist`);
-        return;
+        return new Error(`Cannot delete ${this.args[0]} - ${dir} does not exist`);
       }
     }
   }

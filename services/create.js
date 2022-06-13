@@ -1,7 +1,7 @@
 const Command = require("./command");
 class Create extends Command {
   execute() {
-    if (!this.args || this.args.length === 0) return;
+    if (!this.args || this.args.length === 0) return new Error("not arguments");
 
     let pwd = this.fileTree;
     const path = this.args[0].split("/");

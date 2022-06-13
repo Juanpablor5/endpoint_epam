@@ -21,12 +21,12 @@ class Move extends Command {
           }
         } else {
           console.log(`Cannot move ${origin} - ${dir} does not exist`);
-          return;
+          return new Error(`Cannot move ${origin} - ${dir} does not exist`);
         }
       }
-    }
-
-    if (destination && data) this.createNew(destination, data, key);
+    } else return new Error(`not arguments`);
+    
+    this.createNew(destination, data, key);
   }
 
   createNew(destination, data, key) {

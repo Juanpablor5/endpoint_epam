@@ -16,7 +16,7 @@ class CommandFactory {
       case DICTIONARY.DELETE:
         return new Delete(fileTree, command, args);
       default:
-        console.log("unkow command");
+        console.log("unknown command");
         return null;
     }
   }

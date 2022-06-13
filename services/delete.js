@@ -21,7 +21,6 @@ class Delete extends Command {
         return;
       }
     }
-    super.fileTree = pwd;
   }
 }
 module.exports = Delete;

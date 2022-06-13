@@ -1,18 +1,15 @@
-const Command = require('./command');
+const Command = require("./command");
 class Move extends Command {
-  constructor(fileTree, type, args) {
-    super(fileTree, type, args);
-  }
-
   execute() {
     const origin = this.args[0];
     const destination = this.args[1];
 
-    let key = null, data = null;
+    let key = null;
+    let data = null;
 
     if (origin && destination) {
       let pwd = this.fileTree;
-      const path = origin.split('/');
+      const path = origin.split("/");
       for (let i = 0; i < path.length; ++i) {
         const dir = path[i];
         if (pwd[dir]) {
@@ -34,7 +31,7 @@ class Move extends Command {
 
   createNew(destination, data, key) {
     let pwd = this.fileTree;
-    const path = destination.split('/');
+    const path = destination.split("/");
     for (const dir of path) {
       if (!pwd[dir]) pwd[dir] = {};
       pwd = pwd[dir];

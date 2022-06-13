@@ -1,8 +1,8 @@
-const List = require('./services/list');
-const Create = require('./services/create');
-const Move = require('./services/move');
-const Delete = require('./services/delete');
-const DICTIONARY = require('./utils/commands');
+const List = require("./services/list");
+const Create = require("./services/create");
+const Move = require("./services/move");
+const Delete = require("./services/delete");
+const DICTIONARY = require("./utils/commands");
 
 class CommandFactory {
   create(fileTree, command, args) {
@@ -16,7 +16,7 @@ class CommandFactory {
       case DICTIONARY.DELETE:
         return new Delete(fileTree, command, args);
       default:
-        console.log('unkow command');
+        console.log("unkow command");
         return null;
     }
   }

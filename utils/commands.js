@@ -1,8 +1,8 @@
 const DICTIONARY = {
-  CREATE: 'CREATE',
-  LIST: 'LIST',
-  MOVE: 'MOVE',
-  DELETE: 'DELETE'
+  CREATE: "CREATE",
+  LIST: "LIST",
+  MOVE: "MOVE",
+  DELETE: "DELETE"
 }
 
 module.exports = DICTIONARY;

@@ -1,4 +1,4 @@
-const fs = require ('fs');
+const fs = require('fs');
 const DICTIONARY = require('./utils/commands');
 
 let fileTree = {};
@@ -13,7 +13,7 @@ let fileTree = {};
 
     switch (command) {
       case DICTIONARY.LIST:
-        list(fileTree);
+        list();
         break;
       case DICTIONARY.CREATE:
         create(fileTree, args);
@@ -33,8 +33,26 @@ let fileTree = {};
   }
 })();
 
-function list(fileTree) {
-  console.log(JSON.stringify(fileTree, null, 2));
+function list() {
+  const sortedTree = recursivelySort(fileTree);
+  console.log(JSON.stringify(sortedTree, null, 2).replace(/[\{\}",:]/g, '').replace(/^\s*\n|^ {2}/gm, ''));
+}
+
+function recursivelySort(obj) {
+  obj = Object.keys(obj).sort().reduce(
+    (sortedObj, key) => {
+      sortedObj[key] = obj[key];
+      return sortedObj;
+    },
+    {}
+  );
+
+  for (var k in obj) {
+    if (typeof obj[k] == "object" && obj[k] !== null && Object.keys(obj[k]).length > 0) {
+      obj[k] = recursivelySort(obj[k]);
+    }
+  }
+  return obj;
 }
 
 function create(fileTree, args, move = null) {

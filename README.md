@@ -20,4 +20,9 @@ DELETE foods/fruits/apples
 LIST
 ```
 
-2. Run the program with the command `node index.js`
+2. Run the program with the command `npm start`
+
+3. Run the unit tests with the command `npm test`
+
+## Explanation of the used Design Pattern
+To solve this problem, it was decided to use the Factory Design pattern, since all the commands required similar parameters with small logic changes.

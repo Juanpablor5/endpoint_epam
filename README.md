@@ -1,5 +1,7 @@
 # ENDPOINT Backend Coding Challenge
 
+0. Install all the dependencies with `npm install`
+
 1. Fill the file `data/input.txt` with the instructions. For example:
 ```
 CREATE fruits

@@ -24,8 +24,8 @@ class Move extends Command {
           return new Error(`Cannot move ${origin} - ${dir} does not exist`);
         }
       }
-    } else return new Error(`not arguments`);
-    
+    } else return new Error("not arguments");
+
     this.createNew(destination, data, key);
   }
 

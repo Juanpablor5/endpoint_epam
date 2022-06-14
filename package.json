@@ -3,6 +3,7 @@
     "eslint": "^8.17.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.5.3",
     "eslint-plugin-n": "^15.2.2",
     "eslint-plugin-promise": "^6.0.0",
     "jest": "^28.1.1"
@@ -13,11 +14,14 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "jest --verbose",
-    "test:coverage": "jest --collect-coverage"
+    "test": "jest --verbose --silent",
+    "test:coverage": "jest --collect-coverage --silent"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends": "./node_modules/standard/eslintrc.json",
+    "env": {
+      "jest": true
+    }
   },
   "jest": {
     "testEnvironment": "node"

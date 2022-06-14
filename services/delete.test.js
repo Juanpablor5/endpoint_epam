@@ -6,7 +6,7 @@ describe("delete", () => {
       it("should execute", () => {
         const _delete = new Delete({ first: {} }, "DELETE", ["first"]);
         _delete.execute();
-        const want = {}
+        const want = {};
         expect(_delete.fileTree).toStrictEqual(want);
       });
       it("should execute and delete child directory", () => {
@@ -14,7 +14,7 @@ describe("delete", () => {
         _delete.execute();
         const want = {
           first: {}
-        }
+        };
         expect(_delete.fileTree).toStrictEqual(want);
       });
     });

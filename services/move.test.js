@@ -12,7 +12,7 @@ describe("move", () => {
           fourth: {
             fifth: {}
           }
-        }
+        };
 
         const move = new Move(fileTree, "MOVE", ["first/second", "first/third"]);
         move.execute();
@@ -25,7 +25,7 @@ describe("move", () => {
           fourth: {
             fifth: {}
           }
-        }
+        };
         expect(move.fileTree).toStrictEqual(want);
       });
       it("should execute and move child directory", () => {
@@ -37,7 +37,7 @@ describe("move", () => {
           fourth: {
             fifth: {}
           }
-        }
+        };
 
         const move = new Move(fileTree, "MOVE", ["first/second", "fourth/sixth"]);
         move.execute();
@@ -51,7 +51,7 @@ describe("move", () => {
               second: {}
             }
           }
-        }
+        };
         expect(move.fileTree).toStrictEqual(want);
       });
     });
@@ -65,7 +65,7 @@ describe("move", () => {
           fourth: {
             fifth: {}
           }
-        }
+        };
 
         const move = new Move(fileTree, "MOVE", ["first"]);
         const got = move.execute();
@@ -82,7 +82,7 @@ describe("move", () => {
           fourth: {
             fifth: {}
           }
-        }
+        };
 
         const move = new Move(fileTree, "MOVE", ["first/fifth", "fourth/second"]);
         const got = move.execute();

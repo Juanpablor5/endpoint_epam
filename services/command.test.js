@@ -11,10 +11,9 @@ describe("command class", () => {
       });
       it("should initialize without args", () => {
         const command = new Command({ first: {} }, "ANY", null);
-        const want = {
+        expect(command.fileTree).toStrictEqual({
           first: {}
-        };
-        expect(command.fileTree).toStrictEqual(want);
+        });
         expect(command.type).toBe("ANY");
         expect(command.args).toBe(null);
       });

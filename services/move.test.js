@@ -3,8 +3,9 @@ const Move = require("./move");
 describe("move", () => {
   describe("execute", () => {
     describe("when arguments are provided", () => {
-      it("should execute", () => {
-        const fileTree = {
+      let fileTree;
+      beforeEach(() => {
+        fileTree = {
           first: {
             second: {},
             third: {}
@@ -13,10 +14,11 @@ describe("move", () => {
             fifth: {}
           }
         };
-
+      });
+      it("should execute", () => {
         const move = new Move(fileTree, "MOVE", ["first/second", "first/third"]);
         move.execute();
-        const want = {
+        expect(move.fileTree).toStrictEqual({
           first: {
             third: {
               second: {}
@@ -25,20 +27,9 @@ describe("move", () => {
           fourth: {
             fifth: {}
           }
-        };
-        expect(move.fileTree).toStrictEqual(want);
+        });
       });
       it("should execute and move child directory", () => {
-        const fileTree = {
-          first: {
-            second: {},
-            third: {}
-          },
-          fourth: {
-            fifth: {}
-          }
-        };
-
         const move = new Move(fileTree, "MOVE", ["first/second", "fourth/sixth"]);
         move.execute();
         const want = {

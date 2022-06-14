@@ -11,12 +11,11 @@ describe("create", () => {
       it("should execute and create child directory", () => {
         const create = new Create({ first: {} }, "CREATE", ["first/second"]);
         create.execute();
-        const want = {
+        expect(create.fileTree).toStrictEqual({
           first: {
             second: {}
           }
-        };
-        expect(create.fileTree).toStrictEqual(want);
+        });
       });
     });
     describe("when no arguments are provided", () => {

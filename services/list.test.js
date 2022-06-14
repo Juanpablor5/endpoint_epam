@@ -5,12 +5,11 @@ describe("list", () => {
     it("should execute", () => {
       const list = new List({ first: { second: {} } }, "LIST", null);
       list.execute();
-      const want = {
+      expect(list.fileTree).toStrictEqual({
         first: {
           second: {}
         }
-      };
-      expect(list.fileTree).toStrictEqual(want);
+      });
     });
   });
 });

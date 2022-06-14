@@ -6,16 +6,14 @@ describe("delete", () => {
       it("should execute", () => {
         const _delete = new Delete({ first: {} }, "DELETE", ["first"]);
         _delete.execute();
-        const want = {};
-        expect(_delete.fileTree).toStrictEqual(want);
+        expect(_delete.fileTree).toStrictEqual({});
       });
       it("should execute and delete child directory", () => {
         const _delete = new Delete({ first: { second: {} } }, "DELETE", ["first/second"]);
         _delete.execute();
-        const want = {
+        expect(_delete.fileTree).toStrictEqual({
           first: {}
-        };
-        expect(_delete.fileTree).toStrictEqual(want);
+        });
       });
     });
     describe("when no arguments are provided", () => {

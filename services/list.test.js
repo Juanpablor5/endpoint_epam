@@ -11,5 +11,10 @@ describe("list", () => {
         }
       });
     });
+    it("should execute with different key", () => {
+      const list = new List({ key: "s" }, "LIST", null);
+      list.execute();
+      expect(list.fileTree).toStrictEqual({ key: "s" });
+    });
   });
 });

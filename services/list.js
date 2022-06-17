@@ -5,21 +5,18 @@ class List extends Command {
     console.log(JSON.stringify(sortedTree, null, 2).replace(/[{}",:]/g, "").replace(/^\s*\n|^ {2}/gm, ""));
   }
 
+  // recursively sort the object's keys
   recursivelySort(obj) {
-    obj = Object.keys(obj).sort().reduce(
-      (sortedObj, key) => {
-        sortedObj[key] = obj[key];
-        return sortedObj;
-      },
-      {}
-    );
-
-    for (const k in obj) {
-      if (typeof obj[k] === "object" && obj[k] !== null && Object.keys(obj[k]).length > 0) {
-        obj[k] = this.recursivelySort(obj[k]);
+    const sorted = {};
+    Object.keys(obj).sort().forEach(key => {
+      if (typeof obj[key] === "object") {
+        sorted[key] = this.recursivelySort(obj[key]);
+      } else {
+        sorted[key] = obj[key];
       }
     }
-    return obj;
+    );
+    return sorted;
   }
 }
 module.exports = List;
